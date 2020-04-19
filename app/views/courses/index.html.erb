@@ -1,0 +1,21 @@
+<br>
+<div class="row">
+<% @courses.each do |course|%>
+  <div class="col-sm-4 mb-4 py-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%=course.name%></h5>
+        <p class="card-text"><%=course.descrption%></p>
+
+        <% if logged_in? && !(current_user.courses.include?(course)) %>
+        <%=link_to "Enroll", course_enroll_path(course_id: course.id) ,method: :post,class: 'btn btn-primary' %>      
+        <% end %>
+        <%=link_to "Course Info", "#" ,class: 'btn btn-primary' %>
+       
+      </div>
+    </div>
+  </div>
+<%end%>
+  
+  
+</div>

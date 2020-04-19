@@ -1,0 +1,18 @@
+<br>
+<div class="row">
+<% @students.each do |student|%>
+  <div class="col-sm-4 mb-4 py-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%=student.name%></h5>
+        <p class="card-text"><%=student.email%></p>
+        
+        <%=link_to "View profile" ,student_path(student),class: 'btn btn-primary' %>
+        
+      </div>
+    </div>
+  </div>
+<%end%>
+  
+  
+</div>

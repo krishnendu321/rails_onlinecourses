@@ -1,0 +1,32 @@
+<br>
+<div class="row">
+
+  <div class="col-sm-6 mb-6 py-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%=@student.name%></h5>
+        <h6 class="card-text"><%=@student.email%></h6>
+        <h5> Courses Enroll :</h5>
+        <% if @student.courses.empty? %>
+        <p>Empty</p>
+        <% else %>
+        <ul>
+          <% @student.courses.each do |course| %>
+
+            <p><%=course.name %> </p>
+
+          <%end%>
+        </ul>
+        <%end%>
+
+        
+        
+      </div>
+    </div>
+    <br>
+    <% if current_user==@student %>
+      <%=link_to "Edit profile",edit_student_path(@student) ,class: 'btn btn-primary'%>
+    <% end %>
+  </div>
+
+</div>
